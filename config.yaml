@@ -1,0 +1,44 @@
+# Every tunable lives here (flat). Override from the CLI with --set max_s=45 or in the Streamlit sidebar.
+# A misspelled key now raises an error instead of being silently ignored.
+
+# ---- model
+provider: google_genai        # google_genai | openai | anthropic | groq | mistralai | mock (offline test)
+model: gemini-2.5-flash       # env LLM_PROVIDER / LLM_MODEL / LLM_BASE_URL override these
+base_url: ""                  # only for OpenAI-compatible APIs
+temperature: 0.0
+workers: 4                    # parallel calls (use 1-2 on free tiers)
+rpm: 0                        # requests/minute cap; use ~10 on free tiers
+use_cache: true
+cache_dir: .cache
+
+# ---- this show (injected into prompts)
+audience: US
+format: vertical microdrama, 1-2 minute episodes
+genre_hint: ""
+extra_instructions: ""
+
+# ---- promo rules
+min_s: 20
+max_s: 60
+moment_min_s: 5
+moment_max_s: 25
+hook_window_s: 3
+clips_min: 3
+clips_max: 5
+moments_min: 4
+moments_max: 8
+max_combos: 15
+rule_ending: true
+rule_ending_target_s: 35
+
+# ---- evaluation / ranking
+top_n: 100
+min_per_episode: 2
+w_standalone: 0.35
+w_hook: 0.35
+w_cliff: 0.30
+overlap_max: 0.5
+per_episode_max: 3
+
+prompts_dir: prompts
+output_dir: output

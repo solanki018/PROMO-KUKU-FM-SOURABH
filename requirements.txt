@@ -1,0 +1,13 @@
+langchain>=0.3
+langchain-core>=0.3
+pydantic>=2.5
+streamlit>=1.50
+pandas
+pyyaml
+python-dotenv
+# install ONE provider package (whichever model you use):
+langchain-google-genai    # Gemini (free tier available)
+# langchain-openai
+# langchain-anthropic
+# langchain-groq          # free tier, fast
+pytest
